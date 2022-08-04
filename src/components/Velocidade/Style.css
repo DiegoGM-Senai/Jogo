@@ -1,0 +1,80 @@
+header{
+    text-align: center;
+    background-color: #3e0f77;
+    color: rgb(162, 162, 162);
+    padding: 0.1rem;
+}
+.container{
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 25%;
+    margin-top: 3rem;
+    
+}
+
+.Dinos{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    animation: jump 2s ease-out;
+}
+.Pedras{
+position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: pedra-animada 2s linear infinite;
+}
+
+input{
+    
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #2b2e43;
+    border-radius: 0.5rem;
+}
+button{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #3e0f77;
+    color: aliceblue;
+    border-radius: 0.5rem;
+  
+}
+.jump{
+    animation: sauro-jump 1s linear ;
+}
+
+@keyframes pedra-animada {
+   from{
+       right: 0;
+   }
+   to{
+       right: 100%;
+   }
+}
+@keyframes sauro-jump {
+   0%{
+       bottom: 0;
+   }
+   40%{
+       bottom: 120px;
+   }
+   50%{
+       bottom: 140px;
+   }
+   60%{
+       bottom: 120px;
+   }
+   70%{
+       bottom: 100px;
+   }80%{
+       bottom: 90px;
+   }90%{
+       bottom: 50px;
+   }
+   100%{
+       bottom: 0;
+   }
+}
