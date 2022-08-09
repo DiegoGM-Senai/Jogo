@@ -1,56 +1,39 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
 import "./Style.css";
 
 const Velocidade = (props) => {
+  const [num1, setNum1] = useState();
+  const [num2, setNum2] = useState();
+  const [res, setRes] = useState();
+
   const si = useRef(null);
   const Di = useRef(null);
   const Pe = useRef(null);
-  const x = useRef(null);
-  const y = useRef(null);
-  const res = useRef(null);
 
-  useEffect(() => {
+  let n1 = Math.floor(Math.random() * 10);
+  let n2 = Math.floor(Math.random() * 10);
+
+  function render() {
+    
     const sauro = Di.current;
     const pedra = Pe.current;
     const sinal = si.current;
-    const num1 = x.current;
-    const num2 = y.current;
-    const resp = res.current;
 
-    let n1 = Math.floor(Math.random() * 10);
-    let n2 = Math.floor(Math.random() * 10);
-    let S = Math.floor(Math.random() * 4);
-
-    num1.value = n1;
-    num2.value = n2;
+    let S = Math.floor(Math.random() * 2);
 
     switch (S) {
       case 0:
         sinal.value = "+";
-
+       
         break;
       case 1:
         sinal.value = "-";
-
+        
         break;
-      case 2:
-        sinal.value = "/";
 
-        break;
-      case 3:
-        sinal.value = "*";
-
-        break;
       default:
-    }
-
-    function calcular() {
-      sauro.classList.add("jump");
-      setTimeout(() => {
-        sauro.classList.remove("jump");
-      }, 1000);
     }
 
     setInterval(() => {
@@ -65,9 +48,23 @@ const Velocidade = (props) => {
       }
       clearInterval();
     }, 10);
-
-    // document.addEventListener("keydown", jump);
+  }
+  useEffect(() => {
+    render();
   });
+
+
+  
+  function calcular() {
+    const sauro = Di.current;
+
+    sauro.classList.add("jump");
+    setTimeout(() => {
+      sauro.classList.remove("jump");
+    }, 1000);
+
+
+  }
 
   return (
     <div className="fundo">
@@ -75,12 +72,12 @@ const Velocidade = (props) => {
         <h1>JOGO</h1>
       </header>
       <div className="container">
-        <input type="number" ref={x} readOnly />
+        <input type="number" value={n1} readOnly />
         <input type="text" ref={si} readOnly />
-        <input type="number" ref={y} readOnly />
-        <input type="number" ref={res} placeholder="qual o resultado?" />
+        <input type="number" value={n2} readOnly />
+        <input type="number" placeholder="qual o resultado?" />
 
-        <button onClick={""}>calculo</button>
+        <button onClick={calcular}>calculo</button>
 
         <ReactAudioPlayer
           src={require("./som_fundo.mp3")}
