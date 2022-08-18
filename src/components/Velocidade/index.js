@@ -7,34 +7,68 @@ const Velocidade = (props) => {
   const [num1, setNum1] = useState();
   const [num2, setNum2] = useState();
   const [res, setRes] = useState();
+  const [operacao, setOperacao] = useState();
+
+  let n1 = Math.floor(Math.random() * 10);
+  let n2 = Math.floor(Math.random() * 10);
 
   const si = useRef(null);
   const Di = useRef(null);
   const Pe = useRef(null);
 
-  let n1 = Math.floor(Math.random() * 10);
-  let n2 = Math.floor(Math.random() * 10);
+  const handleOnChangeRes = (event) => {
+    let newRes = event.target.value;
+    setRes(newRes);
+  };
+
+  const setRender = () => {
+    const sinal = si.current;
+    let n1 = Math.floor(Math.random() * 10);
+    let n2 = Math.floor(Math.random() * 10);
+    setNum1(n1);
+    setNum2(n2);
+    let S = Math.floor(Math.random() * 2);
+    console.log("chamou");
+
+    switch (S) {
+      case 0:
+        sinal.value = "+";
+        break;
+      case 1:
+        sinal.value = "-";
+        break;
+      default:
+        sinal.value = "?";
+    }
+    setOperacao(sinal.value);
+
+
+  };
 
   function render() {
-    
     const sauro = Di.current;
     const pedra = Pe.current;
     const sinal = si.current;
+
+    console.log("chamou");
+
+    
+    setNum1(n1);
+    setNum2(n2);
 
     let S = Math.floor(Math.random() * 2);
 
     switch (S) {
       case 0:
         sinal.value = "+";
-       
         break;
       case 1:
         sinal.value = "-";
-        
         break;
-
       default:
+        sinal.value = "?";
     }
+    setOperacao(sinal.value);
 
     setInterval(() => {
       const posicaoPedra = pedra.offsetLeft;
@@ -50,13 +84,29 @@ const Velocidade = (props) => {
     }, 10);
   }
   useEffect(() => {
-    render();
-  });
+    // render();
+    
+  },[]);
 
-
-  
   function calcular() {
     const sauro = Di.current;
+
+    if (operacao === "+") {
+      if (res === num1 + num2) {
+        console.log("acerto");
+        console.log(res);
+      } else {
+        console.log("erro na adicao");
+        console.log(res);
+      }
+    } else {
+    }
+
+    if (operacao === "-") {
+      console.log(num1 - num2);
+      console.log(res);
+    } else {
+    }
 
     sauro.classList.add("jump");
     setTimeout(() => {
@@ -64,6 +114,8 @@ const Velocidade = (props) => {
     }, 1000);
 
 
+    n1 = Math.floor(Math.random() * 10);
+    n2 = Math.floor(Math.random() * 10);
   }
 
   return (
@@ -72,19 +124,17 @@ const Velocidade = (props) => {
         <h1>JOGO</h1>
       </header>
       <div className="container">
-        <input type="number" value={n1} readOnly />
+        <input type="number" value={num1} readOnly />
         <input type="text" ref={si} readOnly />
-        <input type="number" value={n2} readOnly />
-        <input type="number" placeholder="qual o resultado?" />
+        <input type="number" value={num2} readOnly />
+        <input
+          type="number"
+          value={res}
+          onChange={handleOnChangeRes}
+          placeholder="qual o resultado?"
+        />
 
         <button onClick={calcular}>calculo</button>
-
-        <ReactAudioPlayer
-          src={require("./som_fundo.mp3")}
-          autoPlay
-          loop
-          hidden
-        />
 
         <img
           ref={Di}

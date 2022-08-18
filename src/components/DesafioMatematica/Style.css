@@ -4,27 +4,31 @@ header{
     color: rgb(162, 162, 162);
     padding: 0.1rem;
 }
-.container{
+
+
+
+.desafio-container{
     
     display: flex;
     flex-direction: column;
     margin: auto;
     width: 25%;
     margin-top: 3rem;
+   
     
 }
 
 .Dinos{
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 160px;
     animation: jump 2s ease-out;
 }
 .Pedras{
 position: absolute;
-    right: 0;
-    bottom: 0;
-    animation: pedra-animada 2s linear infinite;
+    right:0;
+    bottom: 160px;
+    
 }
 
 input{
@@ -39,13 +43,39 @@ input{
 button{
     margin-top: 1rem;
     padding: 0.5rem;
-    background-color: #3e0f77;
+    background-color: #1aad32;
     color: aliceblue;
     border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid black;
   
 }
+.header{
+    text-align: center;
+   font-size: xx-large;
+   font-weight: 700;
+ top: 15px;
+}
+
 .jump{
-    animation: sauro-jump 1s linear ;
+    animation: sauro-jump 2s linear ;
+}
+.pedra-move{
+    animation: pedra-animada 7s linear infinite;
+}
+
+
+.math-score{
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     font-size: xx-large;
+    font-weight: bold; 
 }
 
 @keyframes pedra-animada {
@@ -58,25 +88,12 @@ button{
 }
 @keyframes sauro-jump {
    0%{
-       bottom: 0;
-   }
-   40%{
-       bottom: 120px;
+       bottom: 160;
    }
    50%{
-       bottom: 140px;
-   }
-   60%{
-       bottom: 120px;
-   }
-   70%{
-       bottom: 100px;
-   }80%{
-       bottom: 90px;
-   }90%{
-       bottom: 50px;
+    bottom: 300px;
    }
    100%{
-       bottom: 0;
+       bottom: 160;
    }
 }

@@ -1,17 +1,18 @@
-import React from 'react'
-import Velocidade from './components/Velocidade'
+import React from "react";
+// import Velocidade from './components/Velocidade'
+import DesafioMatematica from "./components/DesafioMatematica";
+import Score from "./components/score";
+import "./App.css";
 
+const App = () => {
+  return (
+    <div className="body-app">
+     
+      
+     
+      <DesafioMatematica />
+    </div>
+  );
+};
 
-const App = () =>{
-
- 
-return(
-  
-  <div>
-    
-    <Velocidade name='Jogo' />
-  </div>
-)
-}
-
-export default App
+export default App;
