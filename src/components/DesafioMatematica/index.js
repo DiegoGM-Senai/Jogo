@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+
 import "./Style.css";
 
 const DesafioMatematica = () => {
@@ -14,7 +15,9 @@ const DesafioMatematica = () => {
 
   const handleGerarNumber = () => {
     const pedra = Pe.current;
-    pedra.classList.add("pedra-move");
+    
+    pedra.classList.add("pedra-move" );
+    
 
     let score = 0;
     setPonto(score);
@@ -67,6 +70,9 @@ const DesafioMatematica = () => {
       if (posicaoPedra <= 65 && posicaoPedra > 0 && posicaoSauro < 220) {
         pedra.style.animation = "none";
         pedra.style.left = `${posicaoPedra}px`;
+     
+      
+    
       }
       clearInterval();
     }, 10);
@@ -120,7 +126,7 @@ const DesafioMatematica = () => {
         let reset = "";
         setRes(reset);
       } else {
-        alert("vc erro a resposta seria " + num1 + num2);
+        alert("vc erro a resposta seria " +  (num1 + num2));
         window.location.reload();
       }
     }
@@ -145,7 +151,7 @@ const DesafioMatematica = () => {
       if (Number(res) === num1 * num2) {
         console.log("acerto");
         console.log(ponto + 10);
-        setPonto(ponto + 10);
+        setPonto(ponto + 20);
         sauro.classList.add("jump");
         setTimeout(() => {
           sauro.classList.remove("jump");
@@ -162,7 +168,7 @@ const DesafioMatematica = () => {
     if (operacao === "/") {
       if (Number(res) === num1 / num2) {
         console.log("acerto");
-        setPonto(ponto + 10);
+        setPonto(ponto + 20);
         sauro.classList.add("jump");
         setTimeout(() => {
           sauro.classList.remove("jump");
@@ -173,7 +179,8 @@ const DesafioMatematica = () => {
         let reset = "";
         setRes(reset);
       } else {
-        alert("vc erro a resposta seria " + num1 / num2);
+        // Alert("vc erro a resposta seria " + num1 / num2);
+       
         window.location.reload();
       }
     }
@@ -181,7 +188,7 @@ const DesafioMatematica = () => {
 
   useEffect(() => {
     handleStopStone();
-  });
+  },[]);
 
   return (
     <div className="desafio-container">
@@ -214,7 +221,7 @@ const DesafioMatematica = () => {
       <img
         ref={Pe}
         className="Pedras"
-        src={require("./pedras.png")}
+        src={require("./pedraRedonda.png")}
         alt="pedra"
         width={60}
         height={60}

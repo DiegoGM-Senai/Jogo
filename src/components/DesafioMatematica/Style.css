@@ -1,99 +1,104 @@
-header{
-    text-align: center;
-    background-color: #3e0f77;
-    color: rgb(162, 162, 162);
-    padding: 0.1rem;
+header {
+  text-align: center;
+  background-color: #3e0f77;
+  color: rgb(162, 162, 162);
+  padding: 0.1rem;
 }
 
-
-
-.desafio-container{
-    
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 25%;
-    margin-top: 3rem;
-   
-    
+.desafio-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 25%;
+  margin-top: 3rem;
 }
 
-.Dinos{
-    position: absolute;
-    left: 0;
-    bottom: 160px;
-    animation: jump 2s ease-out;
+.Dinos {
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+  animation: jump 2s ease-out;
 }
-.Pedras{
-position: absolute;
-    right:0;
-    bottom: 160px;
-    
-}
-
-input{
-    text-align: center;
-    font-size: x-large;
-    font-weight: bold;
-    margin-top: 1rem;
-    padding: 0.5rem;
-    border: 2px solid #2b2e43;
-    border-radius: 0.5rem;
-}
-button{
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background-color: #1aad32;
-    color: aliceblue;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    border: 2px solid black;
-  
-}
-.header{
-    text-align: center;
-   font-size: xx-large;
-   font-weight: 700;
- top: 15px;
+.Pedras {
+  position: absolute;
+  right: 0;
+  bottom: 20%;
 }
 
-.jump{
-    animation: sauro-jump 2s linear ;
+input {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #2b2e43;
+  border-radius: 0.5rem;
 }
-.pedra-move{
-    animation: pedra-animada 7s linear infinite;
+button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #1aad32;
+  color: aliceblue;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.header {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 700;
+  top: 15px;
 }
 
+.jump {
+  animation: sauro-jump 2s linear;
+}
+.pedra-move {
+  animation: pedra-animada 5s linear infinite;
+}
+.giro {
+  animation: pedra-rodando 3s linear infinite;
+}
 
-.math-score{
-    width: 60px;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     font-size: xx-large;
-    font-weight: bold; 
+.math-score {
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 @keyframes pedra-animada {
-   from{
-       right: 0;
-   }
-   to{
-       right: 100%;
-   }
+  from {
+    right: 0;
+   
+  }
+  to {
+    right: 100%;
+  
+  
+  }
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(-360deg);
+  }
 }
+
 @keyframes sauro-jump {
-   0%{
-       bottom: 160;
-   }
-   50%{
+  0% {
+    bottom: 160;
+  }
+  50% {
     bottom: 300px;
-   }
-   100%{
-       bottom: 160;
-   }
+  }
+  100% {
+    bottom: 160;
+  }
 }
